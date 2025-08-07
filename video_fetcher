@@ -1,0 +1,31 @@
+import requests
+from config import YOUTUBE_API_KEY
+
+YOUTUBE_SEARCH_URL = "https://www.googleapis.com/youtube/v3/search"
+
+def fetch_youtube_videos(query, max_results=10):
+    params = {
+        "part": "snippet",
+        "q": query,
+        "type": "video",
+        "maxResults": max_results,
+        "order": "date",
+        "key": YOUTUBE_API_KEY
+    }
+
+    response = requests.get(YOUTUBE_SEARCH_URL, params=params)
+    response.raise_for_status()
+    data = response.json()
+
+    videos = []
+    for item in data.get("items", []):
+        snippet = item["snippet"]
+        video = {
+            "video_id": item["id"]["videoId"],
+            "title": snippet["title"],
+            "channel_title": snippet["channelTitle"],
+            "thumbnail": snippet["thumbnails"]["high"]["url"]
+        }
+        videos.append(video)
+
+    return videos
