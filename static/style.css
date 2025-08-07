@@ -1,0 +1,59 @@
+body {
+  background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+  background-image: url('/static/background.jpg');
+  background-size: cover;
+  background-blend-mode: overlay;
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+  opacity: 0.05;
+  z-index: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.card {
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 15px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(255, 255, 255, 0.2);
+}
+
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+  height: 200px;
+}
+
+.card-body {
+  background-color: #ffffff;
+  color: #000;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: #ffffff;
+}
